@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  template: `<h2> Product Inventory </h2>
+  <p> This project is a small Angular app for products inventory  <p>`,
+  
 })
 export class AboutComponent implements OnInit {
 

@@ -1,1 +1,10 @@
-<p>products works!</p>
+<div>
+    <h2>{{title}}</h2>
+    <label>Search filter:</label>
+    <input type='text' [(ngModel)]='nameFilter'/> 
+    <ul>
+        <li *ngFor='let product of products | searchFilter: nameFilter'>
+            {{product.name}}
+        </li>
+    </ul>        
+</div>    

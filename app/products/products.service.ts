@@ -1,151 +1,43 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-export interface IProduct {
-  id: number;
-  name: string;
-  active: boolean;
-  expirationDate: string;
-  description: string;
-  type: string;
-  features?: string[];
-}
-
-function generateId() {
-  return Math.floor(Math.random() * 1000);
-}
-
-@Injectable({
-    providedIn:'root'
-}) 
+import {  Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as uuid from 'uuid';
 
 
+
+
+@Injectable()
 export class ProductsService {
-  products: IProduct[] = [{
-    id: generateId(),
-    name: 'IPhone X',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/15/2019',
-    type: 'mobile'
-  }, {
-    id: generateId(),
-    name: 'IPhone XR',
-    active: true,
-    description: 'Like Brand New',
-    expirationDate: '01/14/2019',
-    type: 'mobile'
-  }, {
-    id: generateId(),
-    name: 'Samsung S9',
-    active: true,
-    description: 'Like Brand New',
-    expirationDate: '01/13/2019',
-    type: 'mobile'
-  }, {
-    id: generateId(),
-    name: 'Samsung Note 8',
-    active: true,
-    description: 'Like Brand New',
-    expirationDate: '01/12/2019',
-    type: 'mobile'
-  }, {
-    id: generateId(),
-    name: 'LG Phone',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/11/2019',
-    type: 'mobile'
-  }, {
-    id: generateId(),
-    name: 'IPad Pro',
-    active: true,
-    description: 'Like Brand New',
-    expirationDate: '01/10/2019',
-    type: 'tablet'
-  }, {
-    id: generateId(),
-    name: 'Macbook Pro',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/9/2019',
-    type: 'computer'
-  }, {
-    id: generateId(),
-    name: 'HP Thinkbook',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/8/2019',
-    type: 'computer'
-  }, {
-    id: generateId(),
-    name: 'Dell Inspiron',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/7/2019',
-    type: 'computer'
-  }, {
-    id: generateId(),
-    name: 'Dell Flat',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/6/2019',
-    type: 'computer'
-  }, {
-    id: generateId(),
-    name: 'IPhone 6S',
-    active: false,
-    description: 'Like Brand New',
-    expirationDate: '01/5/2019',
-    type: 'mobile'
-  }];
+  private url = "http://localhost:3000/products";
+    private httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+    };
 
-  products$ = new BehaviorSubject<IProduct[]>(this.products);
-  productsLength$ = new BehaviorSubject(this.products.length);
+    constructor (private _http: HttpClient) { }
 
-  constructor() { }
  
-  getEmployees(): IProduct[]{
-     return this.products;
+  getProducts(): Observable<Object>{
+    return this._http.get(this.url);
   }
 
 
-  addProduct(product) {
-    this.products = [
-      {
-        id: generateId(),
-        ...product,
-      },
-      ...this.products
-    ];
-    this.products$.next(this.products);
-    this.productsLength$.next(this.products.length);
+  addProduct(product) {  
+    product.id=uuid.v4();
+    return this._http.post(this.url, product, this.httpOptions);
   }
 
   editProduct(id, product) {
-    const index = this.products.findIndex(p => p.id === id);
-    this.products = [
-      ...this.products.slice(0, index),
-      {
-        id: id,
-        ...product,
-      },
-      ...this.products.slice(index + 1)
-    ];
-    this.products$.next(this.products);
-    this.productsLength$.next(this.products.length);
-
-
+    
+    let edittedURL = `${this.url}/${id}`;
+        return this._http.put(edittedURL, product, this.httpOptions);
   }
 
-  removeProduct(product) {
-    const index = this.products.indexOf(product);
-    this.products = [
-      ...this.products.slice(0, index),
-      ...this.products.slice(index + 1)
-    ];
-    this.products$.next(this.products);
-    this.productsLength$.next(this.products.length);
+  removeProduct(id) {
+
+    let deleteURL = `${this.url}/${id}`;
+    return this._http.delete(deleteURL);
   }
 
 }

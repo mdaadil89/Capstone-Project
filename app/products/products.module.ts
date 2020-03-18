@@ -4,11 +4,18 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductsComponent } from './products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms'; // Reactive Forms
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
-    imports: [SharedModule,
-        ProductsRoutingModule
+    imports: [HttpClientModule,
+        SharedModule,
+        ProductsRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule
     ],
     declarations: [ProductsComponent, ProductDetailComponent,ProductAddComponent],
     

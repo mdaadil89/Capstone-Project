@@ -1,10 +1,23 @@
+
 <div>
     <h2>{{title}}</h2>
     <label>Search filter:</label>
-    <input type='text' [(ngModel)]='nameFilter'/> 
-    <ul>
-        <li *ngFor='let product of products | searchFilter: nameFilter'>
-            {{product.name}}
-        </li>
-    </ul>        
+    <input type='text' [(ngModel)]='nameFilter'/> <br><br>
+    
+    <ul class="list-group" *ngFor='let product of products | searchFilter: nameFilter' >
+        <li class="list-group-item">{{product.name}}</li>
+        <li class="list-group-item">{{product.description}}</li>
+        <li class="list-group-item">{{product.manufacturer}}</li>
+        <li class="list-group-item">{{product.price}}</li>
+        <li class="list-group-item">{{product.qty}}</li> <br><br>
+      </ul> 
 </div>    
+
+<product-add
+    *ngIf="productOpen"
+    [product]="selectedProduct"
+    (finish)="handleFinish($event)"
+    ></product-add>
+    
+
+

@@ -61,15 +61,17 @@ export class ProductAddComponent implements OnInit {
   if(this.submitted)
   {
     this.showModal = false;
-  
+    
+    
+
     this.finish.emit({
-      product : {
-        id:uuid.v4(),
-        name: this.addform.get('name').value,
-        description: this.addform.get('desc').value,
-        manufacturer: this.addform.get('manuf').value,
-        price:this.addform.get('price').value,
-        qty:this.addform.get('qty').value,
+      prod : {
+        "id":uuid.v4(),
+        "name": this.addform.get('name').value,
+        "description": this.addform.get('desc').value,
+        "manufacturer": this.addform.get('manuf').value,
+        "price":this.addform.get('price').value,
+        "qty":this.addform.get('qty').value,
       }
     });
 

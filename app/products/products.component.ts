@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
   nameFilter: string = '';
   products: IProduct[];
   productOpen = true;
-  selectedProduct: IProduct;
+  selectedProduct: undefined;
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
@@ -27,21 +27,22 @@ export class ProductsComponent implements OnInit {
       );
     }
 
-    addProduct() {
-      this.productOpen = true;
-      this.selectedProduct = undefined;
-    }
+   
 
     handleFinish(event) {
-      if (event && event.product) {
-        if (this.selectedProduct) {
-          this.productsService.editProduct(this.selectedProduct.id, event.product);
-        } else {
-          this.productsService.addProduct(event.product);
+      if (event && event.prod) {
+        // if (this.selectedProduct) {
+          // this.productsService.editProduct(this.selectedProduct.id, event.product);
+        // } else {
+
+        console.log("INSIDE HANDLE FINISH")
+          this.productsService.addProduct(event.prod).subscribe(
+            (data:any) => this.getData()
+          );
         }
       }
-
+      
 
   }
 
-}
+

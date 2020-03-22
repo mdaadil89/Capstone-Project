@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {  Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as uuid from 'uuid';
+import { IProduct } from './product.model';
 
 
 
@@ -23,9 +24,14 @@ export class ProductsService {
   }
 
 
-  addProduct(product) {  
-    product.id=uuid.v4();
-    return this._http.post(this.url, product, this.httpOptions);
+  addProduct(formData) {  
+
+     console.log("This called")
+    let id = uuid();
+    
+        console.log("INSIDE SERVICE FINISH")
+        return this._http.post(this.url, formData ,this.httpOptions)
+
   }
 
   editProduct(id, product) {

@@ -7,7 +7,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'; // Reactive Forms
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {ProductsService} from './products.service'
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ReactiveFormsModule,
         BrowserAnimationsModule
     ],
+    providers :[ProductsService],
     declarations: [ProductsComponent, ProductDetailComponent,ProductAddComponent],
     
   })

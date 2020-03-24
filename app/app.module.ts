@@ -11,6 +11,7 @@ import { ProductsService } from './products/products.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register-login/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegloginService } from './register-login/reglogin.service';
 
 @NgModule({
 
@@ -28,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent
   ],
 
-    providers:[ProductsService],
+    providers:[ProductsService, RegloginService],
 
   
   bootstrap: [AppComponent]

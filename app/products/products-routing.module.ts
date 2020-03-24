@@ -20,6 +20,7 @@ const prodRoutes: Routes = [
     RouterModule.forChild(prodRoutes)
   ],
   exports: [ RouterModule ],
+  
 
 })
 

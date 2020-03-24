@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { RegloginService } from '../reglogin.service';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -11,16 +14,24 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loading = false;
   submitted = false;
   returnUrl: string;
+    exists:boolean;
+    showModal: boolean;
 
   constructor(
       private formBuilder: FormBuilder,
       private router: Router,
+      private _service:RegloginService
   ) {
-      // redirect to home if already logged in
+    // if (this.authenticationService.currentUserValue) { 
+    //     this.router.navigate(['/']);
+    }
      
+  //Bootstrap Modal Close event
+  hide()
+  {
+    this.showModal = false;
   }
 
   ngOnInit() {
@@ -42,17 +53,12 @@ export class LoginComponent implements OnInit {
           return;
       }
 
-      this.loading = true;
-      // this.authenticationService.login(this.f.username.value, this.f.password.value)
-      //     .pipe(first())
-      //     .subscribe(
-      //         data => {
-      //             this.router.navigate([this.returnUrl]);
-      //         },
-      //         error => {
-      //             this.alertService.error(error);
-      //             this.loading = false;
-      //         });
+     
+    this.exists =this._service.ifexists(this.f.username.value, this.f.password.value)
+    this.showModal = this.exists;
+
+    this.loginForm.reset();
+    this.submitted=false;
   }
 
 }

@@ -24,7 +24,6 @@ import {ProfileComponent} from './register-login/profile/profile.component'
   declarations: [
     AppComponent,
     AboutComponent,
-    LoginComponent,
     ProfileComponent,
     PageNotFoundComponent,
     LoginComponent,

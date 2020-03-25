@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register-login/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegloginService } from './register-login/reglogin.service';
+import {ProfileComponent} from './register-login/profile/profile.component'
 
 @NgModule({
 
@@ -24,6 +25,7 @@ import { RegloginService } from './register-login/reglogin.service';
     AppComponent,
     AboutComponent,
     LoginComponent,
+    ProfileComponent,
     PageNotFoundComponent,
     LoginComponent,
     RegisterComponent

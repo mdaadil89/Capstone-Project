@@ -60,8 +60,8 @@
   "users": [
     {
       "id": "d843c66c-c08a-4775-421r-45550b959d23",
-      "mailid": "md@gmail.com",
-      "password": "md.hussain",
+      "mailid": "md",
+      "password": "md",
       "firstName": "aadil",
       "lastName": "hussain",
       "location": "kolkata",

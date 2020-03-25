@@ -1,6 +1,6 @@
 import { Component, OnInit,Input, Output, EventEmitter, ViewChild, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { IProduct } from '../product.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import * as uuid from 'uuid';
 
 
@@ -12,7 +12,6 @@ import * as uuid from 'uuid';
 })
 
 export class ProductAddComponent implements OnInit {
-
   @Input() product: IProduct;
   @Output() finish = new EventEmitter();
   addform: FormGroup;

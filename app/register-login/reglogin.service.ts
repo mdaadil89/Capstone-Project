@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {  Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as uuid from 'uuid';
-import { User } from './_models/user';
+
 
 
 
@@ -18,14 +18,43 @@ export class RegloginService {
 
     constructor (private _http: HttpClient) { }
 
+    login() {
+      localStorage.setItem('routeguard-app-login', "1");
+      
+    }
+
+    logout() {
+      localStorage.removeItem('routeguard-app-login');
+     
+    }
+  
+    isLoggedIn() {
+      if (localStorage.getItem('routeguard-app-login') != null)
+     
+        return true;
+      else
+        return false;
+    }
+
+   
+    
  
     ifexists(username:string,password:string):boolean{
       let url='http://localhost:3000/users?mailid='
      if( this._http.get(`${url}+${username}+'&password='+${password}`))
-     return true;
-     else
-     return false;
+     {
+      this.login();
+      return true;
+
     }
+
+     else
+     {
+       return false;
+       
+
+     }
+}
   
    adduser(formData) {  
 

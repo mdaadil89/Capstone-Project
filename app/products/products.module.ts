@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'; // Reactive Forms
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ProductsService} from './products.service'
+import { AddProductGuardService } from './product-add/addemployee-guard.service';
+import { ProductDetailGaurdService } from './product-detail/productdetail-gaurd.service';
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import {ProductsService} from './products.service'
         ReactiveFormsModule,
         BrowserAnimationsModule
     ],
-    providers :[ProductsService],
+    providers :[ProductsService,AddProductGuardService, ProductDetailGaurdService ],
     declarations: [ProductsComponent, ProductDetailComponent,ProductAddComponent],
     
   })

@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div *ngIf=!isLoggedIn() class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
@@ -22,7 +22,7 @@
     <div class="form-group">
         <button  class="btn btn-primary">
             Login
-        </button>
+        
 
         <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -36,7 +36,7 @@
 			</div>
 			</div>
 			</div>
-
+        </button>
 
         <a routerLink="/register" class="btn btn-link">Register</a>
     </div>

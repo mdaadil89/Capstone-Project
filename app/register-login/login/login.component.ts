@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { RegloginService } from '../reglogin.service';
 import { Observable } from 'rxjs';
+import { Location } from "@angular/common";
 
 
 
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
       private formBuilder: FormBuilder,
       private router: Router,
-      private _service:RegloginService
+      private _service:RegloginService,
+      private location: Location
   ) {
     // if (this.authenticationService.currentUserValue) { 
     //     this.router.navigate(['/']);
@@ -39,7 +41,13 @@ export class LoginComponent implements OnInit {
           username: ['', Validators.required],
           password: ['', Validators.required]
       });
-
+      
+  }
+  
+  isLoggedIn() {
+    
+    return this._service.isLoggedIn();
+    
   }
 
   // convenience getter for easy access to form fields
@@ -52,11 +60,9 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
           return;
       }
-
-     
     this.exists =this._service.ifexists(this.f.username.value, this.f.password.value)
     this.showModal = this.exists;
-
+    this.location.back();
     this.loginForm.reset();
     this.submitted=false;
   }

@@ -41,6 +41,14 @@ export class ProductsComponent implements OnInit {
           );
         }
       }
+
+      deleteProduct(id) {
+        this.productsService.removeProduct(id).subscribe(
+          //() => console.log(`Product with ID = ${id} has been deleted`),
+          //(err) => console.log(err)
+            (data:any) => this.getData()
+        ); 
+      }
       
 
   }

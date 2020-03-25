@@ -21,10 +21,9 @@ import {ProfileComponent} from './register-login/profile/profile.component'
     AppRoutingModule,
     BrowserAnimationsModule],
 
-  declarations: [
+  declarations: [ 
     AppComponent,
     AboutComponent,
-    LoginComponent,
     ProfileComponent,
     PageNotFoundComponent,
     LoginComponent,

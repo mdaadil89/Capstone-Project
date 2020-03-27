@@ -41,9 +41,13 @@ export class ProductsService {
   }
 
   removeProduct(id) {
-
+    
     let deleteURL = `${this.url}/${id}`;
+    //return this._http.delete<void>(deleteURL);
     return this._http.delete(deleteURL);
+
+
+
   }
 
 }

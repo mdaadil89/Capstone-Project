@@ -33,22 +33,6 @@
       "qty": "18"
     },
     {
-      "id": "32240754-2378-4f19-a6f3-afb79dbda1cb",
-      "name": "Test Data",
-      "description": "Testing my data",
-      "manufacturer": "Tester",
-      "price": "85000",
-      "qty": "18"
-    },
-    {
-      "id": "8a6f1242-098f-4933-9842-d033c88448f4",
-      "name": "ffsfsfsfs",
-      "description": "fsfsfsfsfsf",
-      "manufacturer": "sfsfsfsf",
-      "price": "252353",
-      "qty": "232"
-    },
-    {
       "id": "80d30e72-aee6-4407-abbb-2a1e08171b7e",
       "name": "Pencil",
       "description": "Used to write Notes",

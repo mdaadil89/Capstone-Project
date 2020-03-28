@@ -25,14 +25,6 @@
       "qty": "23"
     },
     {
-      "id": "40c6ecc1-6122-56d1-abc6-06415648fc5c",
-      "name": "Philips Smart TV",
-      "description": "A smart TV with pre-loaded online streaming Apps",
-      "manufacturer": "Philips",
-      "price": "85000",
-      "qty": "18"
-    },
-    {
       "id": "80d30e72-aee6-4407-abbb-2a1e08171b7e",
       "name": "Pencil",
       "description": "Used to write Notes",
@@ -54,8 +46,8 @@
       "id": "d843c66c-c08a-4775-421r-45550b959d23",
       "mailid": "md",
       "password": "md",
-      "firstName": "aadil",
-      "lastName": "hussain",
+      "firstname": "aadil",
+      "lastname": "hussain",
       "location": "kolkata",
       "mobile": "912327675"
     },
@@ -121,6 +113,15 @@
       "lastname": "Hussain",
       "location": "goa",
       "mobile": 12121212121
+    },
+    {
+      "id": "cd91fc1f-29f7-4971-9b9e-c18925d088e7",
+      "mailid": "test",
+      "password": "test",
+      "firstname": "test",
+      "lastname": "test",
+      "location": "test",
+      "mobile": 11223123
     }
   ]
 }

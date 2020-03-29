@@ -5,8 +5,7 @@ import { ProductsComponent } from './products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AddProductGuardService } from './product-add/addemployee-guard.service';
 import { ProductAddComponent } from './product-add/product-add.component';
-import { ProductDetailGaurdService } from './product-detail/productdetail-gaurd.service';
-
+import { ProductGaurdService } from './product-gaurd.service';
 
 const prodRoutes: Routes = [
   { 
@@ -14,10 +13,14 @@ const prodRoutes: Routes = [
     children: [
       { path: '', component: ProductsComponent ,
       canDeactivate: [AddProductGuardService]},
-      { path: 'add', component: ProductsComponent ,
-      canDeactivate: [ProductAddComponent]},
+      { path: 'add', component: ProductAddComponent ,
+      canActivate: [ProductGaurdService]
+    },
       { path: ':id', component: ProductDetailComponent,
-      canActivate: [ProductDetailGaurdService] },
+      canActivate: [ProductGaurdService] }
+      ,
+      { path: 'edit/:id', component: ProductsComponent,
+      canActivate: [ProductGaurdService] }
     ] 
   }
   

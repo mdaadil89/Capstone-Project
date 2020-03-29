@@ -12,13 +12,18 @@ export class ProductsComponent implements OnInit {
   title: string = 'Product List';
   nameFilter: string = '';
   products: IProduct[];
-  productOpen = true;
-  selectedProduct: undefined;
   showModal: boolean;
   editForm: FormGroup;
   submitted = false;
   id:any;
-  editProd:IProduct;
+  editProd:IProduct = {
+    id:null,
+    name: null,
+    description: null,
+    manufacturer: null,
+    price:null,
+    qty:null
+  };
   constructor(private productsService: ProductsService, private _fb: FormBuilder) { }
 
   ngOnInit() {
@@ -56,18 +61,7 @@ export class ProductsComponent implements OnInit {
       this.productsService.getOne(this.id).subscribe(editProd => {this.editProd = editProd});
     }
 
-    handleFinish(event: { prod: any; }) {
-      if (event && event.prod) {
-        // if (this.selectedProduct) {
-          // this.productsService.editProduct(this.selectedProduct.id, event.product);
-        // } else {
-
-        console.log("INSIDE HANDLE FINISH")
-          this.productsService.addProduct(event.prod).subscribe(
-            (data:any) => this.getData()
-          );
-        }
-      }
+    
 
       deleteProduct(id: any) {
         this.productsService.removeProduct(id).subscribe(
@@ -77,9 +71,7 @@ export class ProductsComponent implements OnInit {
         ); 
       }
 
-      onClick(id: any){
-        
-      }
+      
 
 
 onSubmit()

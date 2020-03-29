@@ -122,6 +122,42 @@
       "lastname": "test",
       "location": "test",
       "mobile": 11223123
+    },
+    {
+      "id": "61532d78-fe9b-4d04-a79d-b25fb09c8353",
+      "mailid": "surajit@gmail.com",
+      "password": "surajit",
+      "firstname": "Surajit",
+      "lastname": "Mondal",
+      "location": "Kolkata",
+      "mobile": 9123897854
+    },
+    {
+      "id": "0f051ff8-e6f5-4b0a-9aac-9332f728facd",
+      "mailid": "sura@gmail.com",
+      "password": "test",
+      "firstname": "sura",
+      "lastname": "mondal",
+      "location": "New York",
+      "mobile": 785412114
+    },
+    {
+      "id": "b1a3d444-71ad-4edd-ac46-cad09e750d58",
+      "mailid": "adil",
+      "password": "adil",
+      "firstname": "adil",
+      "lastname": "adil",
+      "location": "adil",
+      "mobile": 324321221
+    },
+    {
+      "id": "af3a1590-2fd2-4217-8a7e-5e297499fe9e",
+      "mailid": "surajit",
+      "password": "surajit",
+      "firstname": "surajit",
+      "lastname": "surajit",
+      "location": "surajit",
+      "mobile": 54352211
     }
   ]
 }

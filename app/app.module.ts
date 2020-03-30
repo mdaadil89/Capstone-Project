@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegloginService } from './register-login/reglogin.service';
 import {ProfileComponent} from './register-login/profile/profile.component'
 import { HttpClientModule } from '@angular/common/http';
-
+import {AppGaurdService} from './app-gaurd.service'
 @NgModule({
 
   imports: [BrowserModule,ReactiveFormsModule,ProductsModule,
@@ -29,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent
   ],
 
-    providers:[ RegloginService],
+    providers:[ RegloginService,AppGaurdService],
 
   
   bootstrap: [AppComponent]

@@ -66,7 +66,9 @@ export class ProductAddComponent implements OnInit {
           (data:any) => this.productsService.getProducts
         );
 
-     this.addform.reset();
+     
+     this.submitted=false;
+     this._router.navigate(['products']);
           
   }
 

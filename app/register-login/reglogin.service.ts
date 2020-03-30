@@ -47,7 +47,7 @@ pswd:string;
     }
 
     login() {
-      localStorage.setItem('routeguard-app-login', "1");
+      localStorage.setItem('routeguard-app-login', JSON.stringify(this.user));
       
     }
   

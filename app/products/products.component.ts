@@ -1,49 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges, SimpleChanges } from '@angular/core';
 import { ProductsService } from './products.service';
 import {IProduct} from './product.model'
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import * as uuid from 'uuid';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+
+
 
 @Component({
   selector: 'my-emp',
   templateUrl: './products.component.html'
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit,OnChanges {
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings:IDropdownSettings = {};
   title: string = 'Product List';
   nameFilter: string = '';
   products: IProduct[];
-  showModal: boolean;
-  editForm: FormGroup;
-  submitted = false;
-  id:any;
-  editProd:IProduct = {
-    id:null,
-    name: null,
-    description: null,
-    manufacturer: null,
-    price:null,
-    qty:null
-  };
-  constructor(private productsService: ProductsService, private _fb: FormBuilder) { }
+ 
+  constructor(private productsService: ProductsService, private _fb: FormBuilder) { 
+    this.getData();
+    
+  }
 
   ngOnInit() {
+   
     this.getData();
-
-    this.editForm = this._fb.group({
-      
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      desc: ['', [Validators.required, Validators.minLength(10)]],
-      manuf: ['', [Validators.required, Validators.minLength(5)]],
-      price:['', [Validators.required, Validators.minLength(2)]],
-      qty:['', [Validators.required, Validators.minLength(1)]],
-  });
+    
+      this.dropdownList = [
+      { item_id: 1, item_text: 'Product Name' },
+      { item_id: 2, item_text: 'Product Description' },
+      { item_id: 3, item_text: 'Manufacturer' },
+      { item_id: 4, item_text: 'Price' },
+      { item_id: 5, item_text: 'Quantity' }
+    ];
+    this.selectedItems = [
+      { item_id: 2, item_text: 'Product Description' },
+      { item_id: 3, item_text: 'Manufacturer' }
+    ];
+    this.dropdownSettings = {
+      singleSelection: true,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: true
+    };
+   
   }
-  get f() { return this.editForm.controls; }
 
-  hide()
-  {
-    this.showModal = false;
+  ngOnChanges(){
   }
+
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
 
 
    getData() 
@@ -54,16 +72,7 @@ export class ProductsComponent implements OnInit {
       );
     }
 
-    showedit(id: any){
-      this.showModal = true;
-      this.id=id;
-      console.log(this.productsService.getProduct(id));
-      this.productsService.getOne(this.id).subscribe(editProd => {this.editProd = editProd});
-    }
-
-    
-
-      deleteProduct(id: any) {
+    deleteProduct(id: any) {
         this.productsService.removeProduct(id).subscribe(
           //() => console.log(`Product with ID = ${id} has been deleted`),
           //(err) => console.log(err)
@@ -71,34 +80,6 @@ export class ProductsComponent implements OnInit {
         ); 
       }
 
-      
-
-
-onSubmit()
-  {
-      this.submitted = true;
-      if (this.editForm.invalid) {
-      return;
-      }
-      
-      if(this.submitted)
-      {
-        this.showModal = false;
-        let prod = {
-          "id":this.id,
-          "name": this.editForm.get('name').value,
-          "description": this.editForm.get('desc').value,
-          "manufacturer": this.editForm.get('manuf').value,
-          "price":this.editForm.get('price').value,
-          "qty":this.editForm.get('qty').value,
-          }
-       
-        this.productsService.editProduct(prod,this.id).subscribe(
-          (data:any) => this.getData()
-        );
-      }
-
-  }
 }
 
 

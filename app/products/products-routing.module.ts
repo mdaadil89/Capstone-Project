@@ -6,20 +6,20 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { AddProductGuardService } from './product-add/addemployee-guard.service';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGaurdService } from './product-gaurd.service';
+import { ProductEditComponent } from './product-edit/product-edit.component'
 
 const prodRoutes: Routes = [
   { 
     path: 'products', 
     children: [
-      { path: '', component: ProductsComponent ,
-      canDeactivate: [AddProductGuardService]},
+      { path: '', component: ProductsComponent ,},
       { path: 'add', component: ProductAddComponent ,
-      canActivate: [ProductGaurdService]
-    },
+      canActivate: [ProductGaurdService],
+      canDeactivate: [AddProductGuardService]},
       { path: ':id', component: ProductDetailComponent,
       canActivate: [ProductGaurdService] }
       ,
-      { path: 'edit/:id', component: ProductsComponent,
+      { path: 'edit/:id', component: ProductEditComponent,
       canActivate: [ProductGaurdService] }
     ] 
   }

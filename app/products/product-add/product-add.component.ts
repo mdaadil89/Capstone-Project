@@ -63,12 +63,13 @@ export class ProductAddComponent implements OnInit {
         }
     
         this.productsService.addProduct(prod).subscribe(
-          (data:any) => this.productsService.getProducts
-        );
+          (data:any) => {this.productsService.getProduct;
+            this._router.navigate(['products']);
+          });
 
      
      this.submitted=false;
-     this._router.navigate(['products']);
+     
           
   }
 

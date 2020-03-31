@@ -69,9 +69,10 @@ export class ProductEditComponent implements OnInit {
         }
     
         this.productsService.editProduct(prod,this.id).subscribe(
-          (data:any) => this.productsService.getProducts
+          (data:any) => {this.productsService.getProducts;
+          this._router.navigate(['products']);}
         );
-        this._router.navigate(['products']);
+        
  
   }
 

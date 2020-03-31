@@ -6,7 +6,7 @@
       "description": "New Samsung S10, full touch screen",
       "manufacturer": "Samsung",
       "price": "20000",
-      "qty": "54"
+      "qty": "55"
     },
     {
       "id": "40c6ecc1-6122-417e-abc6-06415648fc5c",
@@ -47,14 +47,6 @@
       "manufacturer": "Lenovo",
       "price": "35455",
       "qty": "6767"
-    },
-    {
-      "id": "fcb61a2c-6dde-4c62-9942-cf2b6a82eeae",
-      "name": "LLLLLLLLLL",
-      "description": "KKKKKKKKKKKKKK",
-      "manufacturer": "DDDDDDD",
-      "price": "670",
-      "qty": "12"
     }
   ],
   "users": [

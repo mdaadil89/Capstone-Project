@@ -8,10 +8,14 @@
       <div class="col-xs-4">
             <a class ="btn btn-sm text-white btn-primary" routerLink="add">Add New Product Detail</a>
           </div>
-          <div class="col-xs-4">
+        <!--<div class="col-xs-4">
           <button (click)="deleteSelected()" class="btn btn-xs btn-danger" [disabled]="selected">Delete Selected Products</button>
-        </div>
-         
+        </div>-->
+         <app-product-delete
+         (finish)="deleteSelected($event)"
+         > 
+
+         </app-product-delete>
       <br><br><br>
 
 <div class='panel-body'>

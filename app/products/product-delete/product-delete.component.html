@@ -1,1 +1,12 @@
-<p>product-delete works!</p>
+<div *ngIf="show" class="col-xs-4">
+    <button  #select (click)="delete()"class="btn btn-xs btn-danger" [disabled]="selected" [routerLink]="['delete/' + id]" >Delete Selected Products</button>
+</div>
+
+<div *ngIf="!show">
+    
+    <p>The item has been deleted.</p>
+
+    <br><br>
+
+    <button (click)="Go()">OK</button>
+</div>

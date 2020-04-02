@@ -1,12 +1,4 @@
-<div *ngIf="show" class="col-xs-4">
-    <button  #select (click)="delete()"class="btn btn-xs btn-danger" [disabled]="selected" [routerLink]="['delete/' + id]" >Delete Selected Products</button>
-</div>
 
-<div *ngIf="!show">
-    
-    <p>The item has been deleted.</p>
+    <button  #select (click)="delete()"class="btn btn-primary btn-danger" [disabled]="selected" >Delete Selected Products</button>
 
-    <br><br>
 
-    <button (click)="Go()">OK</button>
-</div>

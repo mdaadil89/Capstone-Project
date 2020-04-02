@@ -13,7 +13,7 @@ export class ProductDeleteComponent implements OnInit {
 
   //id:string[]=[];
   id:number=0;
-  selected: boolean;
+  selected: boolean=true;
   del: string;
   products: IProduct[];
   @Output() finish = new EventEmitter();
@@ -38,10 +38,5 @@ export class ProductDeleteComponent implements OnInit {
 
   }
 
-  Go() {
-    this.show=true;
-    this.router.navigate(['products']);
-
-  }
 
 }

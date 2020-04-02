@@ -15,8 +15,6 @@ const prodRoutes: Routes = [
       { path: 'add', component: ProductAddComponent ,
       canActivate: [ProductGaurdService],
       canDeactivate: [AddProductGuardService]},
-      { path: 'delete/:id' , component: ProductDeleteComponent,
-      canActivate: [ProductGaurdService] },
       { path: ':id', component: ProductDetailComponent,
       canActivate: [ProductGaurdService] },
       { path: 'edit/:id', component: ProductEditComponent,

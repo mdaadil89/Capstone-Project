@@ -20,15 +20,20 @@ export class ProductsComponent implements OnInit {
   title: string = 'Product List';
   nameFilter: string = '';
   products: IProduct[];
-  showFilter: false;
   myForm: FormGroup;
-  toppings = new FormControl();
    id:string[]=[];
   i:number=0;
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  show : boolean=true;
+  pname : boolean=true;
+  pdesc : boolean=true;
+  pmanu : boolean=true;
+  pprice : boolean=true;
+  pqty: boolean=true;
+
   selected: boolean=true;
   
   @ViewChild(ProductDeleteComponent ,  { static: true }) child: ProductDeleteComponent;
+  
   ngViewInit() {
     this.child.selected = this.selected;
   }
@@ -38,7 +43,26 @@ export class ProductsComponent implements OnInit {
     
   }
 
-  
+ 
+    
+
+showMenu() {
+ 
+this.show? this.show=false:this.show=true
+ 
+    }
+ 
+name() {this.pname? this.pname=false:this.pname=true }
+ 
+desc() {this.pdesc? this.pdesc=false:this.pdesc=true}
+ 
+manu () {this.pmanu? this.pmanu=false:this.pmanu=true}
+ 
+price() {this.pprice? this.pprice=false:this.pprice=true}
+ 
+qty() {this.pqty? this.pqty=false:this.pqty=true}
+
+
     addId(id){
       
       if(this.id.find(x=>x==id))
@@ -62,22 +86,28 @@ export class ProductsComponent implements OnInit {
 
   deleteSelected(event){
 
-    console.log("In delete selected");
-    console.log(event);
-
+    // console.log("In delete selected");
+    // console.log(event);
 
     if(event == "true")
     {
       
-    this.id.forEach(x=> {this.productsService.removeProduct(x).subscribe(
-      (data:any) => 
-      this.getData() )})
-      console.log("IN DELETE SELECTED")
-      
-     }
-     //this.router.navigate(['products']);
+  
+        this.productsService.removeProduct(this.id);
+        this.getData();
+
+        if(this.id.length==1)
+        alert('Selected prodcut is deleted!');
+        else
+        alert('Selected prodcuts are deleted!');
+    }
+
+    
+
   } 
-      ngOnInit() {
+     
+  
+  ngOnInit() {
    
        this.getData();          
         

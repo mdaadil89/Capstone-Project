@@ -1,7 +1,7 @@
 
 
-<div class='panel panel-primary' style="margin-top: 20px">
-      <h2>{{title}}</h2>
+<div class='panel panel-primary' style="margin-top: 40px;">
+      <h1>{{title}}</h1>
       
       <div class="col-md-3">
       <label for="filer">Search filter : </label>
@@ -16,20 +16,23 @@
          (finish)="deleteSelected($event)"> 
          </app-product-delete> </div>
       
-         <div class="col-md-3">
+    <div class="col-md-3">
       <button (click)="showMenu()" name="customize" class="btn btn-primary">Customize View</button>
     
           <br><br>
-      <div *ngIf="!show" id="grpChkBox">
+      <div *ngIf="!show" id="grpChkBox" class="card" style="width: 20rem;">
+        <div class="card-header bg-dark text-white">Select the column you want to hide</div>
+        <div class="card-body">
         <!--<p><input type="checkbox" name="prdid" /> Product ID</p>-->
-        <p><input type="checkbox" name="pname" (change)="name()" /> Product Name</p>
-        <p><input type="checkbox" name="pdesc" (change)="desc()" /> Description</p> 
-        <p><input type="checkbox" name="pmanu" (change)="manu()" /> Manufacturer</p>
-        <p><input type="checkbox" name="pprice" (change)="price()" /> Price</p>
-        <p><input type="checkbox" name="pqty" (change)="qty()" /> Quantity</p> 
-        </div>
+        <p><input type="checkbox" name="pname" (change)="name()" class="card-text"  /> Product Name</p>
+        <p><input type="checkbox" name="pdesc" (change)="desc()" class="card-text"/> Description</p> 
+        <p><input type="checkbox" name="pmanu" (change)="manu()" class="card-text" /> Manufacturer</p>
+        <p><input type="checkbox" name="pprice" (change)="price()" class="card-text"/> Price</p>
+        <p><input type="checkbox" name="pqty" (change)="qty()" class="card-text"/> Quantity</p> 
       </div>
-
+      </div>
+    </div>
+ 
       <br><br><br>
  
 <div class='panel-body'>

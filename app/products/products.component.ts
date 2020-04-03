@@ -8,8 +8,8 @@ import {ProductDeleteComponent} from './product-delete/product-delete.component'
 import { Router } from '@angular/router';
 
 
-
-@Component({
+ 
+@Component({ 
   selector: 'my-emp',
   templateUrl: './products.component.html'
 })
@@ -85,7 +85,7 @@ qty() {this.pqty? this.pqty=false:this.pqty=true}
 
 
   deleteSelected(event){
-
+ 
     // console.log("In delete selected");
     // console.log(event);
 

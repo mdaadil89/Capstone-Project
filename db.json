@@ -1,19 +1,90 @@
 {
-  "posts": [
+  "products": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "843cccd1-c007-4d6b-934d-f36225375674",
+      "name": "asasasasa",
+      "description": "asasasasasasa",
+      "manufacturer": "sasasasa",
+      "price": 1212121,
+      "qty": 12
+    },
+    {
+      "id": "b6d092b5-d693-4027-8a04-bfa01a52e150",
+      "name": "dsdsfsf",
+      "description": "sfsfsfsfsfsfsfsfsfsf",
+      "manufacturer": "sfsfsfsfsf",
+      "price": 121212,
+      "qty": 212
+    },
+    {
+      "id": "67afee0b-e7fb-4fb4-b025-769db48123e7",
+      "name": "dasaad",
+      "description": "dasaaddasaad",
+      "manufacturer": "dasaad",
+      "price": 2313232,
+      "qty": 232
+    },
+    {
+      "id": "ab0b369a-5f4d-48ae-8448-f8bafeab3511",
+      "name": "sasasa",
+      "description": "adadadadada",
+      "manufacturer": "dadadad",
+      "price": 1212121,
+      "qty": 2121
+    },
+    {
+      "id": "45f7f945-88c2-44b2-ab06-c0e8c113843c",
+      "name": "wewewewe",
+      "description": "e2e2ewewewew",
+      "manufacturer": "ewewewe",
+      "price": 1212121,
+      "qty": 1212
+    },
+    {
+      "id": "4614cd4c-3850-40be-9829-87371d084607",
+      "name": "wewewew",
+      "description": "dsdsdsdwdwwewew",
+      "manufacturer": "ewewewew",
+      "price": 11212,
+      "qty": 21
+    },
+    {
+      "id": "bddcc220-aeef-49c2-b26f-0bb20db87a95",
+      "name": "wewewe",
+      "description": "wewewewewewe",
+      "manufacturer": "wewewew",
+      "price": 32323,
+      "qty": 32
+    },
+    {
+      "id": "f0486704-44e5-4242-8701-9ab88ae9edbc",
+      "name": "dsdd",
+      "description": "dsdsdsdsds",
+      "manufacturer": "sdsdsd",
+      "price": 2321212,
+      "qty": 1212
+    },
+    {
+      "id": "b8c3842d-48df-479c-bdd2-990ccadb2f40",
+      "name": "sasasasa",
+      "description": "sasasasasasasasa",
+      "manufacturer": "sasasasa",
+      "price": 1212,
+      "qty": 12
     }
   ],
-  "comments": [
+  "users": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "typicode"
+    },
+    {
+      "id": "3d70402e-80da-4312-8734-09624d813c6f",
+      "mailid": "md",
+      "password": "md",
+      "firstname": "md",
+      "lastname": "md",
+      "location": "md",
+      "mobile": 91232122
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

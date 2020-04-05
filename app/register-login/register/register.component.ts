@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
 
   hidealert() {
     this.show=false;
-    this.router.navigate['login'];
+    this.router.navigate(['login']);
   }
 
   ngOnInit() {

@@ -83,7 +83,7 @@ top7:boolean=false;
     
 
     if(this.counts.length>3 )
-    {for(let i=0;i<this.counts.length && i<6;i++){
+    {for(let i=0;i<this.counts.length && i<5;i++){
       this.counter1[i]=this.counts[i].counter;
       this.labels1[i]=this.counts[i].name; 
     }
@@ -96,7 +96,7 @@ top7:boolean=false;
     }
 
     if(this.counts.length>5)
-    {for(let i=0;i<this.counts.length;i++){
+    {for(let i=0;i<this.counts.length && i<7;i++){
       this.counter2[i]=this.counts[i].counter;
       this.labels2[i]=this.counts[i].name; 
     }this.chartLabels2 = this.labels2;

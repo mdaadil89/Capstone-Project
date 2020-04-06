@@ -53,19 +53,23 @@
         <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
             <div *ngIf="f.location.errors.required">Location is required</div>
         </div>
-        <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
-            <div *ngIf="f.location.errors.required">Location is required</div>
-        </div>
+        
     </div>
+    
     <div class="form-group">
         <label for="mobile">Mobile</label>
-        <input type="number" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" placeholder="Enter your Mobile No."/>
+        <input placeholder="Mobile Number" type="tel" minlength="10" maxlength="14" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
         <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
             <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>
         </div>
         <div *ngIf="submitted && f.mobile.invalid && f.mobile.errors.invalidNumber" style="color: red">
             Value has to be a number.
         </div>
+
+        <div *ngIf="f.mobile.errors?.minlength" style="color:red">
+            Mobile number must be at least 10 digits long.
+           </div>
+         
     </div>
 
     <div class="form-group">

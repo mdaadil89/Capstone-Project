@@ -3,7 +3,8 @@ Screenshots of the Application
 
 ### About Page
 
-![About Page](/assets/AboutPage.jpg)
+![About Page](/assets/AboutPage.jpg) 
+<br/>
 
 ### Products Page
 

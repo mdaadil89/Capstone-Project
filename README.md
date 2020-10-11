@@ -8,7 +8,7 @@ Screenshots of the Application
 
 ### Products Page
 
-![Products Page](/assets/ProductsPage.jpg)
+![Products Page](/assets/ProductsPage.jpg)<br/>
 
 ### Search Filter Functionality at Work
 
